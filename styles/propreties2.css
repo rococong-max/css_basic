@@ -1,0 +1,45 @@
+body {}
+.wrap {
+    background-color: #FFDBEF;
+    width:393px; height:100vh;
+    padding: 100px 20px 30px;
+    text-align: center;
+    margin: 0 auto;
+}
+.wrap h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom:30px;
+}
+/* 다른 방법
+    .wrap h2,
+    .wrap h3 {font-size:24px; font-weight:600; margin-bottom:30px;} 
+    그룹선택자(,) 기준으로 뒤 선택자 reset, 부모부터 다시쓰기 */
+.wrap p {}
+.wrap p:nth-child(2) {
+    margin-bottom: 15px;
+    font-size: 0.75rem;
+}
+/* 다른방법 (인접형제 선택자를 이용한 p 선택 방법 + 그룹(,) 
+    .wrap h2+p,
+    .wrap h3+p {} */
+.wrap h2+p em {color: red;}
+/* 다른 방법 (수열) .wrap p:nth-child(2) em {} */
+.wrap p em {}
+.wrap #content {margin: 0 0 30px;}
+.wrap #content span {
+    background-color: #C4FF9F;
+}
+.wrap h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom:30px;
+}
+.wrap p:nth-child(5) {
+    margin-bottom: 15px;
+    font-size:0.75rem;
+}
+.wrap .details {}
+.wrap .details em {
+    
+}
