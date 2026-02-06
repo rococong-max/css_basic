@@ -89,6 +89,24 @@
 * `<button type="button" 이벤트="자바스크립트명령어작성">`
     * 버튼에 이벤트 작성 시 반드시 type은 button(범용기능)
     * `onclick=""` : 클릭 시 "명령어" 실행 이벤트
-    * `window.location.href='실행주소'"`
+    * `"window.location.href='실행주소'"`
         * (위)`a href="실행주소"` 와 동일한 JS 명령어
     * `button:hover {}` : 버튼에 마우스 올렸을 시 디자인 변경
+# 웹 글꼴 `<link>`, `@font-face`
+## `<link>` 사용법과 특징
+* `head`태그 안 `reset.css`연결보다 위에 작성
+* `@font-face`에 비해 사용이 간편함
+* 작성한 HTML에서만 사용할 수 있다는 단점있음.
+## `@font-face`
+* `reset.css` 파일 내 가장 위쪽라인에 작성
+* `@font-face {`
+    * `font-family:"사용할 글꼴 이름 임의작성"`
+    * `src:url(글꼴 주소)`
+    * `font-weight:"글꼴 굵가(200~700 글꼴에 따라 다름)"`
+    * `font-style:"기울기 (normal, italic 등)"`
+    * `font-display:"swap"`
+    * `}`
+    * 2번째 줄까지는 필수 그 밑에 3가지는 자유
+* reset에 한번 연결해두면 모든 html에서 사용가능
+* `@font-face {font-family:'사용할 글꼴명'}` (예) 컴퓨터에 글꼴 설치
+* `선택자 {font-family:'웹글꼴로 불러온 글꼴명'}` (예) 포토샵에서 글꼴 사용
