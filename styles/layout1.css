@@ -1,0 +1,84 @@
+body {
+    height:200vh;
+    background-image:url(../images/bg1.jpg) ;
+    /* background- 시작 속성들은 배경이미지 전용 */
+    background-size:100% auto;
+    /* background-repeat: no-repeat; */
+    background-position: center 60%;
+    background-attachment: fixed;/* 스크롤 관계없이 배경고정 */
+}
+/* slide start */
+#slide_wrap {
+    width: 549px; height: 298px;
+    background-color: aqua;
+    /* test 임시 색상은 aqua, yellow 등 영문명 색상
+    실제 디자인 색상은 #... 헥사코드로 입력 */
+    margin: 109px auto 0;
+    /* 피그마 넘친 콘텐츠 숨기기 */
+    overflow: hidden;
+    /* scroll : 영역 안에서 스크롤을 내리며 볼 수 있음(필요없어도 무조건) / auto : scroll과 마찬가지 (필요없으면 안보임) */
+}
+#slide_wrap .slide_container {
+    /* 기본 너비값 100% (block이기 때문에 부모와 같음) */
+    width:max-content; /* 자식너비 만큼이라는 의미 */
+}
+#slide_wrap .slide_container .slide {
+    width: 549px; height: 298px;
+    display: inline-block;
+    /* 부모 기준으로 옆으로 나열될 공간이 있어야 옆으로 나열됨 */
+}
+#slide_wrap .slide_container .slide:nth-child(1) {
+    background-color: yellow;
+}
+#slide_wrap .slide_container .slide:nth-child(2) {
+    background-color: pink;
+}
+#slide_wrap .slide_container .slide:nth-child(3) {
+    background-color: orange;
+}
+#slide_wrap .slide_container .slide:nth-child(4) {
+    background-color: skyblue;
+}
+#slide_wrap .prev {}
+#slide_wrap .next {}
+/* -------------best slide */
+#best_slide_wrap {
+    background-color: aqua;
+    margin: 50px auto 0;
+    width:1200px;
+    /* w기본값 : 100% / h기본값 : auto (피그마의 hug) */
+    /* viewport의 경우 개별 슬라이드에 높이 값을 주었다면 적지 않아도 됨(auto 적용) */
+    overflow: scroll;
+}
+#best_slide_wrap h1 {}
+#best_slide_wrap .slide_container {
+    width:max-content;
+}
+#best_slide_wrap .slide_container .slide {
+    width:600px; height:400px;
+    font-size: 3rem;
+    /* display: inline-block; 
+    margin-right:-3px;*/
+    /* inline-block으로 옆으로 정렬 시 기본여백발생으로 margin-right:-3px로 제거하는 작업을 해줘야 한다. */
+    /* 옆으로 나열하는 레이아웃 속성(형제관계) */
+    float:left;
+}
+#best_slide_wrap .slide_container .slide:nth-child(1) {
+    background-color: pink;
+}
+#best_slide_wrap .slide_container .slide:nth-child(2) {
+    background-color: yellowgreen;
+    clear:both;
+}
+#best_slide_wrap .slide_container .slide:nth-child(3) {
+    background-color: beige;
+    /* float:none; */
+    /* float:none -> flaot를 모두 해제함 */
+    /* clear:both; */
+    /* clear:both -> 이전 형제에서 오는 float를 모두 해제함 */
+}
+#best_slide_wrap .slide_container .slide:nth-child(4) {
+    background-color: skyblue;
+}
+#best_slide_wrap .prev {}
+#best_slide_wrap .next {}
