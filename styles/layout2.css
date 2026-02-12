@@ -1,0 +1,235 @@
+#new_wrap {
+    background-color: aquamarine;
+    width: 1200px; margin: 0 auto;
+}
+#new_wrap > h1 {
+    width: 860px; margin: 0 auto;
+}
+#new_wrap #new_slide_wrap {
+    background-color: salmon;
+    width:860px; margin: 0 auto;
+    overflow: hidden;
+    /* absolute 부모 설정 */
+    position:relative;
+}
+#new_wrap #new_slide_wrap .new_slides {
+    background-color: orange;
+    /* float 적용 전 자식 높이를 인식해서 자동으로 따라오는 부모 */
+    /* float 적용 후 부유한 자식 요소들로 인해 높이 인식 불가 부모 */
+    /* (위) 문제 해결법 -> : "넘친" 자식 요소들 재인식 시키기 */
+    overflow:hidden;
+    /* 자식 요소의 전체 너비 설정 */
+    /* width:max-content; */
+    width:calc(860px * 4);/* calc 게산기함수 사용, 연산자 좌우 여백 필수 */
+}
+#new_wrap #new_slide_wrap .new_slides .slide {
+    border: 2px solid red;
+    width: 860px; height: 450px;
+    /* 실제 크기가 필요한 주요 요소 (자식)한테 높이를 주면 그 부모 요소들은 자동으로 자식과 크기가 같아진다. */
+    float:left;
+}
+#new_wrap #new_slide_wrap .new_slides .slide h1 {}
+#new_wrap #new_slide_wrap .new_slides .slide a {}
+#new_wrap #new_slide_wrap .new_slides .slide1 {}
+#new_wrap #new_slide_wrap .new_slides .slide2 {}
+#new_wrap #new_slide_wrap .new_slides .slide3 {}
+#new_wrap #new_slide_wrap .new_slides .slide4 {}
+#new_wrap #new_slide_wrap .prev {
+    background-color: greenyellow;
+    /* relative 현재 위치 기준 */
+    /* position:relative; left:50px; top:-50px; */
+    /* absolute 부모 위치 기준 (기본부모:body ) */
+    /* 기준 부모 설정은 -> 부모에 position설정 */
+    position: absolute; left: 0; top:40%;
+}
+#new_wrap #new_slide_wrap .next {
+    background-color: aqua;
+    position:absolute; right: 0; top:40%;
+}
+#new_wrap #new_slide_wrap .page {
+    background-color: yellow;
+    position: absolute; right:50px; bottom:50px;
+}
+#new_wrap #new_slide_wrap .page .current {}
+#new_wrap #new_slide_wrap .page .all {}
+/* 영풍문고 독자들의 선택-------------------------- */
+/* 슬라이드 개인 크기 설정 -> 옆으로 나열 -> 슬라이드들 크기 설정 -> 뷰포트 크기 설정 및 넘친 컨텐츠 숨기기 */
+#book_select {
+    width: 1084px;
+    background-color: aqua;
+    margin: 50px auto;
+}
+#book_select h1 {}
+#book_select #book_slide_wrap {
+    position: relative;/* 이전, 다음 기준위치 설정(부모)-#book_select에도 가능 */
+    background-color: aliceblue;
+}
+#book_select #book_slide_wrap .slide_wrap {
+    width:calc(340px * 3);
+    overflow: hidden;
+    margin:0 auto;
+}
+#book_select #book_slide_wrap .slide_wrap .slides  {
+    background-color: pink;
+    width: calc(340px * 4);
+    /* 밑으로 떨어지는 이유는 공간의 크기가 부족해서임 */
+    /* overflow: hidden; 위에 너비 값 직접 줌으로써 같은 역할을 하게 됨  */
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide {
+    background-color: yellow;
+    display: block; /* float로 옆으로 보내줄 것이기 때문에 inline-block일 필요없음 */
+    width: 340px; height: 472px;
+    float:left;
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide:nth-child(odd) {
+    background-color: orange;
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .thumnail {
+    height:324px;
+    background-image: url(../images/bg2.jpg);
+    background-size: 340px auto;
+    background-position: center bottom;
+    padding: 30px 25px 0;
+    position: relative; 
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .thumnail::after {
+    content:'';
+    display:block; height:100%; width: 100%;
+    background-color:rgba(0,0,0,0.6);
+    position:absolute; left:0; top:0;
+    z-index:40;/* z축의 순서를 정하겠다는 의미, position의 추가 속성임, 적당히 큰 수를 작성하여 나중에 디자인을 추가하는 경우도 고려하기 */
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .thumnail p {
+    line-height: 1.5;
+    color: #fff;
+    position: relative;
+    z-index:50;
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info {
+    height: 148px;
+    /* padding: 10px; */
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info .cover {
+    float:left;
+    margin-right: 10px;
+    padding: 15px 0 0 15px;
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info .cover img {height: 120px;}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl {
+    float:left;
+    padding-top:15px;
+    position: relative;/* after를 위한 부모 기준 설정하기 */
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl::after {
+    content:'';/* 필수!! */
+    display:block;/* 크기 인식 */
+    width:100%; height: 100%;/* 크기 값 적용 */
+    background-color: rgba(255, 255, 255, 0.7);/* 반투명 색상 */
+    position:absolute;/* 형제 요소와 겹치기(부모 기준 설정 필요) */
+    left: 0; top:0;/* 위치 설정 */
+    z-index: 100;/* 형제관계 중첩순서 설정 */
+}
+/* #book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl > * 그룹을 묶지않고 dl의 모든 자식에게 값을 주는 방법 */
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl dt,
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl dd {
+    line-height: 1.5;
+    position: relative;/* z-index 설정하기 위한 준비 속성 */
+    z-index: 300;/* 기준 형제보다 작은 값 또는 높은 값 작성 */
+}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl dt {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl dd {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl dd img {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl dd img .score {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide .book_info dl .review {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide1 {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide2 {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide3 {}
+#book_select #book_slide_wrap .slide_wrap .slides .slide4 {}
+#book_select #book_slide_wrap  #bk_select_prev,
+#book_select #book_slide_wrap  #bk_select_next {position: absolute; top:40%;}
+#book_select #book_slide_wrap  #bk_select_prev {
+    /* position: absolute; left:0; top:50%; */
+    left:0;
+}
+#book_select #book_slide_wrap  #bk_select_next {
+    /* position: absolute; right:0; top:50%; */
+    right:0;
+}
+#book_select #book_slide_wrap .pagenation {
+    background-color: yellow;
+    text-align: center; padding: 10px 0;
+}
+#book_select #book_slide_wrap .pagenation a {
+    width: 8px; height: 8px;
+    display:inline-block;
+    background-color: #aaa;
+    border-radius: 50%;
+}
+#book_select #book_slide_wrap .pagenation .active {
+    width: 14px; height: 14px;
+}
+/* 영풍문고 오늘의 책 ------------------------------ */
+#today_book {
+    background-color: paleturquoise;
+    width:1084px;
+    margin: 50px auto;
+}
+#today_book .title {
+    background-color: yellow;
+    padding:20px 0 20px;
+}
+#today_book .title h1 {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+#today_book .title .more {
+    float:right;
+    position: relative; top: 3px;
+}
+#today_book .contents {
+    overflow: hidden;
+}
+#today_book .contents li {
+    float: left;
+    margin-right: 29px;
+}
+#today_book .contents li:last-child {margin: 0;}
+#today_book .contents li .thumnail {
+    background-color: yellowgreen;
+    position: relative;
+}
+#today_book .contents li .thumnail img {
+    width:193px;}
+#today_book .contents li .thumnail .popup {
+    position:absolute; left: 0; top:0;
+    padding: 20px;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+#today_book .contents li .thumnail .popup a {color:#fff;}
+#today_book .contents li .thumnail .popup > a {
+    display: block;
+    height: 80%;
+    line-height: 1.5;
+}
+#today_book .contents li .thumnail .popup .view_cart {
+    text-align: center;
+}
+#today_book .contents li .thumnail .popup .view_cart a {
+    border:1px solid #fff;
+    border-radius: 14%;
+    padding:4px 6px;
+    margin-right: 4px;
+}
+#today_book .contents li h2 {
+    background-color: khaki;
+    margin:4px 0 8px;
+}
+#today_book .contents li h2 a {
+    font-size: 1.13rem;
+    font-weight: 700;
+}
+#today_book .contents li .author {
+    background-color: cornflowerblue;
+}
