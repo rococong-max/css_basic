@@ -177,9 +177,11 @@
 #today_book .title {
     background-color: yellow;
     padding:20px 0 20px;
+    overflow: hidden;/* 자식 h1,more float로 인한 부모인식 속성 */
 }
 #today_book .title h1 {
-    display: inline-block;
+    /* display: inline-block; */
+    float:left;/* .more와 형제이므로 똑같이 float값을 주어야 함 */
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -188,33 +190,42 @@
     position: relative; top: 3px;
 }
 #today_book .contents {
-    overflow: hidden;
+    overflow: hidden;/* 자식 li float 적용으로 인해 부모 인식을 위한 값 */
 }
 #today_book .contents li {
+    /* 옆으로 배치는 형제관계부터 생각하기 => li */
     float: left;
-    margin-right: 29px;
+    margin-right: 29.7px;
+    /* width:193px; */
+    width: calc((100% - (29.7px * 4)) / 5);
 }
 #today_book .contents li:last-child {margin: 0;}
-#today_book .contents li .thumnail {
+#today_book .contents li .thumnail {    
     background-color: yellowgreen;
     position: relative;
 }
 #today_book .contents li .thumnail img {
-    width:193px;}
+    width:100%;/* 부모 li의 너비 값이 자식,자손 블록 기본 w100%로 인해 자동적용 되는데 img는 인라인으로 자동적용이 안되기 때문에 직접 100%를 입력해서 부모와 너비를 같게 만들어야한다. */
+}
 #today_book .contents li .thumnail .popup {
     position:absolute; left: 0; top:0;
-    padding: 20px;
-    height: 100%;
+    padding: 10px;
+    height: 100%; width: 100%;
+    /* 부모 thumnail relative 기준 왼쪽상단 위치같음, 가로세로크기 같음 */
     background-color: rgba(0,0,0,0.6);
 }
-#today_book .contents li .thumnail .popup a {color:#fff;}
+#today_book .contents li .thumnail .popup * {color:#fff;}
 #today_book .contents li .thumnail .popup > a {
     display: block;
-    height: 80%;
+    /* height: 80%; */
+    height: calc(100% - 30px);/* 단위가 달라도 계산 가능 */
+    background-color: purple;
     line-height: 1.5;
 }
 #today_book .contents li .thumnail .popup .view_cart {
     text-align: center;
+    position: absolute; left: 0; bottom: 50px; width: 100%;
+    background-color: cornflowerblue;
 }
 #today_book .contents li .thumnail .popup .view_cart a {
     border:1px solid #fff;
