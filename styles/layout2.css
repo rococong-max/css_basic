@@ -176,7 +176,7 @@
 }
 #today_book .title {
     background-color: yellow;
-    padding:20px 0 20px;
+    padding:10px 0 ;
     overflow: hidden;/* 자식 h1,more float로 인한 부모인식 속성 */
 }
 #today_book .title h1 {

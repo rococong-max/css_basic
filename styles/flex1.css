@@ -1,0 +1,33 @@
+.title {
+    background-color: yellowgreen;
+    width: 350px; margin: 50px auto 0;
+    /* flex 속성은 정렬하고자 하는 대상의 부모 명령 시작 */
+    display:flex;
+    /* flex 기본값 : 메인축(수평)정렬 */
+    /* 메인축 정렬 속성 */
+    /* text-align: center; 인라인을 움직이는 속성이므로 작동하지 않음 */
+    justify-content: space-between;
+    padding: 0 10px;
+    /* 교차축 정렬 속성(1줄일때) */
+    align-items: center;
+}
+.title h1 {font-size: 1.2rem;}
+.title .more {font-size: 0.75rem;}
+.contents {
+    background-color: brown;
+    width: 350px; height: 150px; margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap; /* 정렬 방향(메인 축의 방향) 줄바꿈 속성 */
+    /* flex-wrap: wrap;
+    flex-direction: column; */
+    align-content: space-between;
+    justify-content: flex-end;
+    /* flex 전용 여백 (item사이만 적용) */
+    /* gap:10px; 다른 계산 값과 충돌이 날 수 있으므로 먼저 쓰기 */
+}
+.contents li {
+    width: calc((100% - 15px) / 4);
+    height: 50px;
+}
+.contents li:nth-child(odd) {background-color: cadetblue;}
+.contents li:nth-child(even) {background-color: palevioletred;}
