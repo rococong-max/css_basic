@@ -210,3 +210,11 @@
 * `선택자 {animation: a 1s ease 0.5s alternate 3;}`
     * 특정 선택자에 0.5초 기다리고 1초 동안 a 애니메이션을 ease 가속도로 정방향 -> 역방향 순서로 3번 재생하기 (무한재생은 `infinite`)
 ## transform
+* transition, animation 속성과 함께 특이한 애니메이션에 자주 활용하는 변형속성
+* scale() 크기,rotate() 회전,skew() 기울기,translate() 이동
+* `transform:scale(1);` 비율 기준 1 == 100%
+* `transform:rotate(20deg);` 반시계 방향 회전은 `20deg`
+* `transform:skew(-20deg);` 
+* `transform:translate(10px, 20px);` x, y 이동 순서로 작성
+* 다른 모든 속성은 중심이 왼쪽 상단, **transform만 유일하게 가운데가 기준점** 
+* 기준점 변경 방법 :`transform-origin:x,t;`
