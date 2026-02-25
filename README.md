@@ -187,3 +187,26 @@
     * `flex_start, flex-end, center` 위 메인축과 뜻 동일
 * `align-content:` : 교차축이 2줄 이상일때
     * `flex_start, flex-end, center, space-between, space-around` 위 메인축과 뜻 동일, 값 동일
+## transition
+* `:hover` 선택자로 인해 기존속성에서 다른 속성으로 변경되는 CSS에 애니메이션을 주고 싶을때
+    * `선택자 {color:#000; font-size:1rem;}`
+    * `선택자:hover {color:#fff;}`
+    * 위 선택자 에시) color만  hover시 변경됨
+    * 아래 연결 동작) 변경된 color만 transition 적용
+    * `선택자:hover {transition:color 1s; color:#000;font-size:1rem;}`
+    * 문법 : `transition:변경속성 지속시간 속도 지연시간`
+    * `transition:color 1s linear 2s`
+    * 2초 기다리고 1초 동안 일정속도로 color 속성에 애니메이션 적용
+## animation + @keyframes
+### 적용 순서
+1. `@keyframes 애니메이션이름 {적용분기}`
+2. `선택자 {animatiom:키프레임애니메이션이름 추가속성}`
+### 개념 및 주의사항
+* `hover + transition`은 사용자의 키보드, 마우스 동작에 따라 나타나는 애니메이션
+* `keytrames + animation`은 페이지로딩 시 등장 애니메이션, 스크롤 내릴 시 나타나는 컨텐츠의 등장 애니메이션 등에 사용함. (사용자 hover 동작과 대부분 관계없음)
+### 명령 해석
+* `@keyframes a {0% {opacity:0;} 100% opacity:1;}`
+    * 애니메이션이름 a 생성 후 안보이다가 보이는 애니메이션
+* `선택자 {animation: a 1s ease 0.5s alternate 3;}`
+    * 특정 선택자에 0.5초 기다리고 1초 동안 a 애니메이션을 ease 가속도로 정방향 -> 역방향 순서로 3번 재생하기 (무한재생은 `infinite`)
+## transform
