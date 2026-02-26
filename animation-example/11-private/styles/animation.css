@@ -1,0 +1,21 @@
+@keyframes x300 {
+    0% {opacity: 0; transform: translateX(300px);}
+    100% {opacity: 1; transform: translateX(0);}
+}
+@keyframes rotate360 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@keyframes bg_pst {
+    from {background-position-x: 0;}
+    to {background-position-x:1000px;}
+}
+/* position:; 요소 이동 */
+/* background-position:; 요소 고정, 요소 안 배경이미지 이동 */
+/* background-position:x y; */
+/* background-position-x: x; */
+/* background-position-y: y; */
+@keyframes move_y {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(10px);}
+}

@@ -13,6 +13,7 @@
             margin:0 auto; font-weight:700; 
             font-size:5rem; text-align: center;
             background: linear-gradient(to right, #ff00ff, #00ffff, #ff00ff);
+            /* -webkit- 파이어폭스, 크롬 등 브라우저에서 안전하게 속성 적용하는 웹브라우저 엔진 명령어 */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -28,6 +29,17 @@
             background-clip: text;
             color: transparent;
         }
+        main h3 {
+            font-size: 5rem; font-weight: 900;
+            background:linear-gradient(90deg,yellowgreen, pink, skyblue, yellowgreen);
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            animation: txt_ani 30s linear alternate infinite;
+            transform-origin: center top ;
+        }
         p {width:30px;}
         p img {width:100%;}
         p:nth-child(1) img {}
@@ -38,6 +50,10 @@
             0% {}
             100% {}
         }
+        @keyframes txt_ani {
+            0% {background-position-x: 0;}
+            100% {background-position-x: 5000px;}
+        }
     </style>
 </head>
 <body>
@@ -45,6 +61,7 @@
         <p><img src="./images/arrow.png" alt=""></p>
         <h1>PORTFOLIO</h1>
         <h2>PROJECT</h2>
+        <h3>웹접근성 & 웹표준</h3>
         <p><img src="./images/arrow.png" alt=""></p>
     </main>
     <footer>
