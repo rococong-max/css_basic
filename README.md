@@ -218,3 +218,13 @@
 * `transform:translate(10px, 20px);` x, y 이동 순서로 작성
 * 다른 모든 속성은 중심이 왼쪽 상단, **transform만 유일하게 가운데가 기준점** 
 * 기준점 변경 방법 :`transform-origin:x,t;`
+## 스크롤바 디자인
+/* Firefox */
+html {scrollbar-width: 10px;scrollbar-color: #dd55aa #abffc5;}
+/* Opera */
+html::-o-scrollbar {width: 10px;}
+html::-o-scrollbar-thumb {background-color: #dd55aa;border-radius: 5px;}
+/* Chrome, Safari, Edge 등 웹킷 기반 브라우저 */
+::-webkit-scrollbar {width: 10px;}
+::-webkit-scrollbar-track {box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);}
+::-webkit-scrollbar-thumb {background-color: #dd55aa;border-radius: 5px;}
